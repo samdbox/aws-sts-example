@@ -15,7 +15,9 @@ npm install
 ```
 
 **`.env` 복사**
+
 `.evn` 파일에 환경변수를 입력하면 `process`에 적용됩니다.
+
 ```
 cp .env.example .env
 ```
@@ -37,6 +39,7 @@ npm test
 ```
 
 **결과**
+
 Trust Relationships에 입력된 ARN은 토큰을 얻을 수 있고 테스트를 통과합니다.
 
 ```

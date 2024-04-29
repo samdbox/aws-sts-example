@@ -11,7 +11,6 @@ const key = process.env['OBJECT_KEY']
 const roleArn = process.env['ROLE_ARN']
 
 test('GetObject without STS', async () => {
-  
   // Create a s3 client with credentials
   const s3Client = new S3Client({ region })
   // Create a command to get an object.
