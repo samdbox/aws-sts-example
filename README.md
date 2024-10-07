@@ -24,11 +24,17 @@ cp .env.example .env
 이후 `.env` 파일에 `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` 등 필요한 값들을 입력해주세요.
 
 ```
+# Your AWS access key id
 AWS_ACCESS_KEY_ID=
+# Your AWS secret access key
 AWS_SECRET_ACCESS_KEY=
+# S3 bucket name to connect
 S3_BUCKET=
+# The region of the bucket. eg. ap-northeast-1
 REGION=
+# The object key name to get
 OBJECT_KEY=
+# The role arn using STS
 ROLE_ARN=
 ```
 
@@ -47,12 +53,17 @@ Trust Relationships에 입력된 ARN은 토큰을 얻을 수 있고 테스트를
 > jest -i
 
  PASS  ./index.test.js
-  ✓ GetObject without STS (481 ms)
-  ✓ GetObject with STS (238 ms)
+  success case
+    ✓ Succeed with STS (200) (318 ms)
+  error case
+    ✓ InvalidAccessKeyId (403) (62 ms)
+    ✓ SignatureDoesNotMatch (403) (58 ms)
+    ✓ Access Denied (403) (74 ms)
+    ✓ NoSuchBucket (404) (60 ms)
 
 Test Suites: 1 passed, 1 total
-Tests:       2 passed, 2 total
+Tests:       5 passed, 5 total
 Snapshots:   0 total
-Time:        0.947 s, estimated 1 s
+Time:        0.884 s, estimated 1 s
 Ran all test suites.
 ```
