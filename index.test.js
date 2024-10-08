@@ -10,12 +10,6 @@ const region = process.env['REGION']
 const key = process.env['OBJECT_KEY']
 const roleArn = process.env['ROLE_ARN']
 
-let stsClient
-
-beforeEach(() => {
-
-}) 
-
 describe('success case', () => {
   test('Succeed with STS (200)', async () => {
     // create a STSClient
